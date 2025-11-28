@@ -71,19 +71,6 @@ JXF uses a mechanism similar to glTF for extensions.
 **Status: Stable** (Core primitives)
 
 All entities are objects within the `entities` array.
-
-### 2.1. Common Fields
-
-| Field | Type | Required | Description |
-
-- **Points**: Array of coordinates. Can be 2D `[x, y]` or 3D `[x, y, z]`. All points must have the same dimension.
-- **Closed**: If `true`, an implicit segment connects the last point to the first.
-- **Thickness** (Optional): Line width in drawing units. Default: 0.
-- **Cap** (Optional): End cap style. `butt` (default), `round`, `square`.
-- **Join** (Optional): Corner join style. `miter` (default), `round`, `bevel`.
-
-```json
-{
   "type": "polyline",
   "points": [[0,0], [10,0], [10,10]],
   "closed": true,
