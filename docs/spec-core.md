@@ -75,53 +75,21 @@ All entities are objects within the `entities` array.
 ### 2.1. Common Fields
 
 | Field | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `type` | String | **Yes** | The type of entity (e.g., "line", "arc"). |
-| `id` | String | **Yes** | Unique identifier for referencing this entity. |
-| `layer` | String | No | ID of the layer this entity belongs to. |
-| `attributes` | Object | No | Semantic key-value pairs (e.g., material, feature type). |
-
-### 2.2. Line (Status: Stable)
-A straight line segment.
-
-```json
-{
-  "type": "line",
-  "id": "e1",
-  "start": [0, 0, 0],
-  "end": [100, 50, 0],
-  "layer": "0"
-}
-```
-
-### 2.3. Arc / Circle (Status: Stable)
-A circular arc.
-- **Angles**: In degrees.
-- **Full Circle**: `startAngle: 0`, `endAngle: 360`.
-
-```json
-{
-  "type": "arc",
-  "id": "e2",
-  "center": [50, 50, 0],
-  "radius": 25.0,
-  "startAngle": 0,
-  "endAngle": 90,
-  "layer": "0"
-}
-```
-
-### 2.4. Polyline (Status: Stable)
-A connected series of segments.
 
 - **Points**: Array of coordinates. Can be 2D `[x, y]` or 3D `[x, y, z]`. All points must have the same dimension.
 - **Closed**: If `true`, an implicit segment connects the last point to the first.
+- **Thickness** (Optional): Line width in drawing units. Default: 0.
+- **Cap** (Optional): End cap style. `butt` (default), `round`, `square`.
+- **Join** (Optional): Corner join style. `miter` (default), `round`, `bevel`.
 
 ```json
 {
   "type": "polyline",
   "points": [[0,0], [10,0], [10,10]],
   "closed": true,
+  "thickness": 2.0,
+  "cap": "round",
+  "join": "round",
   "layer": "0"
 }
 ```
